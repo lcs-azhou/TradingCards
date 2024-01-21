@@ -11,6 +11,8 @@
 		79FABA742B5AB2E800307967 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FABA732B5AB2E800307967 /* ContentView.swift */; };
 		79FABA762B5AB2EB00307967 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79FABA752B5AB2EB00307967 /* Assets.xcassets */; };
 		79FABA792B5AB2EB00307967 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79FABA782B5AB2EB00307967 /* Preview Assets.xcassets */; };
+		79FABA802B5AB39300307967 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FABA7F2B5AB39300307967 /* DetailView.swift */; };
+		79FABA832B5CC97F00307967 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FABA822B5CC97F00307967 /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		79FABA732B5AB2E800307967 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		79FABA752B5AB2EB00307967 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79FABA782B5AB2EB00307967 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		79FABA7F2B5AB39300307967 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		79FABA822B5CC97F00307967 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,7 @@
 			children = (
 				79FABA712B5AB2E800307967 /* TradingCardsApp.swift */,
 				79FABA732B5AB2E800307967 /* ContentView.swift */,
+				79FABA812B5AB3A000307967 /* View */,
 				79FABA752B5AB2EB00307967 /* Assets.xcassets */,
 				79FABA772B5AB2EB00307967 /* Preview Content */,
 			);
@@ -65,6 +70,15 @@
 				79FABA782B5AB2EB00307967 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		79FABA812B5AB3A000307967 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				79FABA7F2B5AB39300307967 /* DetailView.swift */,
+				79FABA822B5CC97F00307967 /* CardView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +152,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				79FABA742B5AB2E800307967 /* ContentView.swift in Sources */,
+				79FABA802B5AB39300307967 /* DetailView.swift in Sources */,
+				79FABA832B5CC97F00307967 /* CardView.swift in Sources */,
 				79FABA722B5AB2E800307967 /* TradingCardsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
