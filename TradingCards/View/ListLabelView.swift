@@ -9,20 +9,30 @@ import SwiftUI
 
 struct ListLabelView: View {
     
+    let itemImageName: String
+    let itemName: String
+    let itemBriefItro: String
+    
     var body: some View {
         
         ZStack {
             LazyVStack(alignment:.leading){
                 HStack {
-                    Image("Vaporeon")
+                    Image(itemImageName)
                         .resizable()
                         .scaledToFit()
-                        .aspectRatio(2.5,contentMode: .fit)
-                        .clipShape(Circle())
-                    .padding(.horizontal,20)
-                    VStack {
-                        Text("Vaporeon")
-                        Text("Vaporeon is the best")
+                        .aspectRatio(1.5,contentMode: .fit)
+//                        .clipShape(Circle())
+                    .padding(.horizontal)
+                    LazyVStack(alignment:.leading) {
+                        Text(itemName)
+                            .font(
+                                .custom("Futura-Medium", size: 26.0,relativeTo: .title)
+                        )
+                        Text(itemBriefItro)
+                            .font(
+                                .custom("Futura-Medium", size: 13.0)
+                        )
                     }
                     
                 }
@@ -33,5 +43,9 @@ struct ListLabelView: View {
 }
 
 #Preview {
-    ListLabelView()
+    ListLabelView(
+        itemImageName: "Vaporeon1",
+        itemName: "Vaporeon",
+        itemBriefItro: "Type:water"
+    )
 }

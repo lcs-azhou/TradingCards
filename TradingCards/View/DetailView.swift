@@ -15,20 +15,24 @@ struct DetailView: View {
     let pokemonCatergory: String
     let pokemonWeight: String
     let pokemonDetail: String
+    let cardBackgroundColor: String
+    let cardBorderColor: String
+    let numberColor: String
     
     var body: some View {
         VStack{
             ZStack{
-                Color.pureBlue
+                Color(cardBackgroundColor)
                     .ignoresSafeArea()
             
             VStack {
                 Image(imageName)
                     .resizable()
                     .scaledToFit()
-                    .aspectRatio(1 ,contentMode: .fit)
-                    .border(Color.darkBlue, width: 10)
-                    .border(Color.yellow, width:5)
+                    .aspectRatio(1,contentMode: .fit)
+                    .border(Color(cardBorderColor), width: 10)
+                    .border(Color.white, width:5)
+                    .padding(8)
             }
                 HStack {
                     Spacer()
@@ -53,7 +57,7 @@ struct DetailView: View {
                     )
                     Text(pokemonNumber)
                         .bold()
-                        .foregroundColor(.red)
+                        .foregroundColor(Color(numberColor))
                         .font(
                             .custom("Futura-Medium", size: 36.0,relativeTo: .title)
                     )
@@ -99,11 +103,14 @@ struct DetailView: View {
 
 #Preview {
     DetailView(
-        imageName: "Vaporeon",
+        imageName:"Vaporeon",
         pokemonNumber: "#0134",
         pokemonHeight: "3'03''",
         pokemonCatergory: "Bubble Jet",
         pokemonWeight: "63.9 lbs",
-        pokemonDetail: "Its cell composition is similar to water molecules. As a result, it can’t be seen when it melts away into water."
+        pokemonDetail: "Its cell composition is similar to water molecules. As a result, it can’t be seen when it melts away into water.",
+        cardBackgroundColor: "pureBlue",
+        cardBorderColor: "darkBlue",
+        numberColor: "darkBlue"
     )
 }
