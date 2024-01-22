@@ -9,15 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack{
+            List{
+                NavigationLink(destination: {
+                    DetailView(
+                        imageName: "Vaporeon",
+                        pokemonNumber: "#0134",
+                        pokemonHeight:"3'03''",
+                        pokemonCatergory: "Bubble Jet",
+                        pokemonWeight: "63.9 lbs",
+                        pokemonDetail: "It lives close to water. Its long tail is ridged with a fin, which is often mistaken for a mermaid’s."
+                    )},label:{
+                        
+                    }
+                )
+                }
+            }
         }
-        .padding()
     }
-}
+
 
 #Preview {
     ContentView()

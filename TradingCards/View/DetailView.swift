@@ -9,6 +9,13 @@ import SwiftUI
 
 struct DetailView: View {
     
+    let imageName: String
+    let pokemonNumber: String
+    let pokemonHeight: String
+    let pokemonCatergory: String
+    let pokemonWeight: String
+    let pokemonDetail: String
+    
     var body: some View {
         VStack{
             ZStack{
@@ -16,7 +23,7 @@ struct DetailView: View {
                     .ignoresSafeArea()
             
             VStack {
-                Image(.vaporeon)
+                Image(imageName)
                     .resizable()
                     .scaledToFit()
                     .aspectRatio(1 ,contentMode: .fit)
@@ -44,8 +51,9 @@ struct DetailView: View {
                         .font(
                             .custom("Futura-Medium", size: 36.0,relativeTo: .title)
                     )
-                    Text("#0134")
+                    Text(pokemonNumber)
                         .bold()
+                        .foregroundColor(.red)
                         .font(
                             .custom("Futura-Medium", size: 36.0,relativeTo: .title)
                     )
@@ -65,17 +73,17 @@ struct DetailView: View {
                     LazyVStack(alignment:.leading){
                         Text("Height")
                             .fontWeight(.semibold)
-                        Text("3'03''")
+                        Text(pokemonHeight)
                     }
                     LazyVStack(alignment:.leading){
                         Text("Catergory")
                             .fontWeight(.semibold)
-                        Text("Bubble Jet")
+                        Text(pokemonCatergory)
                     }
                     LazyVStack(alignment:.leading){
                         Text("Weight")
                             .fontWeight(.semibold)
-                        Text("63.9 lbs")
+                        Text(pokemonWeight)
                     }
                 }
                 Text("Detail")
@@ -83,12 +91,19 @@ struct DetailView: View {
                     .font(
                         .custom("Futura-Medium", size: 26.0,relativeTo: .title3)
                 )
-                Text("Its cell composition is similar to water molecules. As a result, it can’t be seen when it melts away into water.")
+                Text(pokemonDetail)
             }.padding()
         }
     }
 }
 
 #Preview {
-    DetailView()
+    DetailView(
+        imageName: "Vaporeon",
+        pokemonNumber: "#0134",
+        pokemonHeight: "3'03''",
+        pokemonCatergory: "Bubble Jet",
+        pokemonWeight: "63.9 lbs",
+        pokemonDetail: "Its cell composition is similar to water molecules. As a result, it can’t be seen when it melts away into water."
+    )
 }
