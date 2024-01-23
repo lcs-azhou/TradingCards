@@ -16,6 +16,8 @@ struct ListLabelView: View {
     var body: some View {
         
         ZStack {
+            Color.mint.opacity(0.3)
+                .ignoresSafeArea()
             LazyVStack(alignment:.leading){
                 HStack {
                     Image(itemImageName)

@@ -9,40 +9,65 @@ import SwiftUI
 
 struct DetailView: View {
     
+    let gradientColor1 = Gradient(colors: [.white,Color("lightPink"),Color("darkPink")])
+    let gradientColor2 = Gradient(colors: [.white,Color("brightYellow"),Color("darkYellow")])
+    let gradientColor3 = Gradient(colors: [.white,Color("brightPurple"),Color("darkPurple")])
+    let gradientColor4 = Gradient(colors: [.white,Color("brightOrange"),Color("darkOrange")])
+    let gradientColor5 = Gradient(colors: [.white,Color("pureBlue"),Color("darkBlue")])
+    let gradientColor6 = Gradient(colors: [.white,Color("lightGreen"),Color("darkGreen")])
+    let gradientColor7 = Gradient(colors: [.white,Color("brightGray"),Color("darkGrey")])
+    let gradientColor8 = Gradient(colors: [.white,Color("lightBrown"),Color("darkBrown")])
+    
     let imageName: String
     let pokemonNumber: String
-    let pokemonHeight: String
-    let pokemonCatergory: String
-    let pokemonWeight: String
     let pokemonDetail: String
     let cardBackgroundColor: String
     let cardBorderColor: String
     let numberColor: String
+    let pokemonName: String
+    let pokemonIcon: String
     
     var body: some View {
         VStack{
             ZStack{
                 Color(cardBackgroundColor)
                     .ignoresSafeArea()
+                    .overlay(alignment: .topLeading, content: {
+                        Text(pokemonName)
+                            .bold()
+                            .padding(.horizontal,20)
+                            .padding(.vertical,5)
+                            .font(
+                                .custom("Futura-Medium", size: 36.0,relativeTo: .title)
+                        )
+                            .foregroundColor(Color(numberColor))
+                    })
             
             VStack {
                 Image(imageName)
                     .resizable()
                     .scaledToFit()
                     .aspectRatio(1,contentMode: .fit)
-                    .border(Color(cardBorderColor), width: 10)
-                    .border(Color.white, width:5)
                     .padding(8)
             }
+            .border(Color(cardBorderColor), width: 10)
+            .border(Color.white, width:5)
+            .padding()
+                Image(pokemonName)
+                    .resizable()
+                    .scaledToFit()
+                    .aspectRatio(1,contentMode: .fit)
+                    .padding(8)
+                
                 HStack {
                     Spacer()
                     VStack {
                         Spacer()
                         ZStack{
-                            Image(.ballIcon)
+                            Image(pokemonIcon)
                                 .resizable()
                                 .scaledToFit()
-                                .aspectRatio(0.34, contentMode: .fit)
+                                .aspectRatio(0.28, contentMode: .fit)
                         }
                     }
                 }
@@ -65,32 +90,9 @@ struct DetailView: View {
                 }
                 //pokemon stats source:
                 //https://www.pokemon.com/us/pokedex/vaporeon
-            }
+            }.padding(.top)
             VStack(alignment: .leading){
-                Text("Stats")
-                    .bold()
-                    .font(
-                        .custom("Futura-Medium", size: 26.0,relativeTo: .title3)
-                )
-
-                HStack{
-                    LazyVStack(alignment:.leading){
-                        Text("Height")
-                            .fontWeight(.semibold)
-                        Text(pokemonHeight)
-                    }
-                    LazyVStack(alignment:.leading){
-                        Text("Catergory")
-                            .fontWeight(.semibold)
-                        Text(pokemonCatergory)
-                    }
-                    LazyVStack(alignment:.leading){
-                        Text("Weight")
-                            .fontWeight(.semibold)
-                        Text(pokemonWeight)
-                    }
-                }
-                Text("Detail")
+                Text("Information")
                     .bold()
                     .font(
                         .custom("Futura-Medium", size: 26.0,relativeTo: .title3)
@@ -103,14 +105,13 @@ struct DetailView: View {
 
 #Preview {
     DetailView(
-        imageName:"Vaporeon",
+        imageName:"backG1",
         pokemonNumber: "#0134",
-        pokemonHeight: "3'03''",
-        pokemonCatergory: "Bubble Jet",
-        pokemonWeight: "63.9 lbs",
         pokemonDetail: "Its cell composition is similar to water molecules. As a result, it can’t be seen when it melts away into water.",
         cardBackgroundColor: "pureBlue",
         cardBorderColor: "darkBlue",
-        numberColor: "darkBlue"
+        numberColor: "darkBlue",
+        pokemonName: "Vaporeon",
+        pokemonIcon: "Vaporeon1"
     )
 }
