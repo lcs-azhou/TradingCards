@@ -13,7 +13,6 @@
 		79FABA792B5AB2EB00307967 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79FABA782B5AB2EB00307967 /* Preview Assets.xcassets */; };
 		79FABA802B5AB39300307967 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FABA7F2B5AB39300307967 /* DetailView.swift */; };
 		79FABA852B5ED0BB00307967 /* ListLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FABA842B5ED0BB00307967 /* ListLabelView.swift */; };
-		79FABA892B60460D00307967 /* GradientColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FABA882B60460D00307967 /* GradientColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +23,6 @@
 		79FABA782B5AB2EB00307967 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		79FABA7F2B5AB39300307967 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		79FABA842B5ED0BB00307967 /* ListLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLabelView.swift; sourceTree = "<group>"; };
-		79FABA882B60460D00307967 /* GradientColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +56,6 @@
 			isa = PBXGroup;
 			children = (
 				79FABA712B5AB2E800307967 /* TradingCardsApp.swift */,
-				79FABA732B5AB2E800307967 /* ContentView.swift */,
 				79FABA812B5AB3A000307967 /* View */,
 				79FABA752B5AB2EB00307967 /* Assets.xcassets */,
 				79FABA772B5AB2EB00307967 /* Preview Content */,
@@ -77,8 +74,8 @@
 		79FABA812B5AB3A000307967 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				79FABA732B5AB2E800307967 /* ContentView.swift */,
 				79FABA7F2B5AB39300307967 /* DetailView.swift */,
-				79FABA882B60460D00307967 /* GradientColors.swift */,
 				79FABA842B5ED0BB00307967 /* ListLabelView.swift */,
 			);
 			path = View;
@@ -157,7 +154,6 @@
 				79FABA742B5AB2E800307967 /* ContentView.swift in Sources */,
 				79FABA852B5ED0BB00307967 /* ListLabelView.swift in Sources */,
 				79FABA802B5AB39300307967 /* DetailView.swift in Sources */,
-				79FABA892B60460D00307967 /* GradientColors.swift in Sources */,
 				79FABA722B5AB2E800307967 /* TradingCardsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

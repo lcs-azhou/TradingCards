@@ -7,17 +7,17 @@
 
 import SwiftUI
 
+let gradientColor1 = Gradient(colors: [.white,Color("lightPink"),Color("darkPink")])
+let gradientColor2 = Gradient(colors: [.white,Color("brightYellow"),Color("darkYellow")])
+let gradientColor3 = Gradient(colors: [.white,Color("brightPurple"),Color("darkPurple")])
+let gradientColor4 = Gradient(colors: [.white,Color("brightOrange"),Color("darkOrange")])
+let gradientColor5 = Gradient(colors: [.white,Color("pureBlue"),Color("darkBlue")])
+let gradientColor6 = Gradient(colors: [.white,Color("lightGreen"),Color("darkGreen")])
+let gradientColor7 = Gradient(colors: [.white,Color("brightGray"),Color("darkGrey")])
+let gradientColor8 = Gradient(colors: [.white,Color("lightBrown"),Color("darkBrown")])
+
 struct DetailView: View {
-    
-    let gradientColor1 = Gradient(colors: [.white,Color("lightPink"),Color("darkPink")])
-    let gradientColor2 = Gradient(colors: [.white,Color("brightYellow"),Color("darkYellow")])
-    let gradientColor3 = Gradient(colors: [.white,Color("brightPurple"),Color("darkPurple")])
-    let gradientColor4 = Gradient(colors: [.white,Color("brightOrange"),Color("darkOrange")])
-    let gradientColor5 = Gradient(colors: [.white,Color("pureBlue"),Color("darkBlue")])
-    let gradientColor6 = Gradient(colors: [.white,Color("lightGreen"),Color("darkGreen")])
-    let gradientColor7 = Gradient(colors: [.white,Color("brightGray"),Color("darkGrey")])
-    let gradientColor8 = Gradient(colors: [.white,Color("lightBrown"),Color("darkBrown")])
-    
+
     let imageName: String
     let pokemonNumber: String
     let pokemonDetail: String
@@ -26,57 +26,64 @@ struct DetailView: View {
     let numberColor: String
     let pokemonName: String
     let pokemonIcon: String
+    let backgroundGradient: Gradient
+    let pokemonBehavior: String
     
     var body: some View {
         VStack{
-            ZStack{
-                Color(cardBackgroundColor)
-                    .ignoresSafeArea()
-                    .overlay(alignment: .topLeading, content: {
-                        Text(pokemonName)
-                            .bold()
-                            .padding(.horizontal,20)
-                            .padding(.vertical,5)
-                            .font(
-                                .custom("Futura-Medium", size: 36.0,relativeTo: .title)
-                        )
-                            .foregroundColor(Color(numberColor))
-                    })
-            
-            VStack {
-                Image(imageName)
-                    .resizable()
-                    .scaledToFit()
-                    .aspectRatio(1,contentMode: .fit)
-                    .padding(8)
-            }
-            .border(Color(cardBorderColor), width: 10)
-            .border(Color.white, width:5)
-            .padding()
-                Image(pokemonName)
-                    .resizable()
-                    .scaledToFit()
-                    .aspectRatio(1,contentMode: .fit)
-                    .padding(8)
+            Group {
+                ZStack{
+                    RadialGradient(gradient: backgroundGradient, center: .center, startRadius: 13, endRadius: 420)
+                        .ignoresSafeArea()
+                        .overlay(alignment: .topLeading, content: {
+                            Text(pokemonName)
+                                .bold()
+                                .padding(.horizontal,20)
+    //                            .padding(.vertical,5)
+                                .font(
+                                    .custom("Futura-Medium", size: 36.0,relativeTo: .title)
+                            )
+                                .foregroundColor(Color(numberColor))
+                        })
                 
-                HStack {
-                    Spacer()
-                    VStack {
+                VStack {
+                    Image(imageName)
+                        .resizable()
+                        .scaledToFit()
+                        .aspectRatio(1,contentMode: .fit)
+                        .padding(8)
+                        .opacity(0.6)
+                        .shadow(radius: 20, y:4)
+                }
+                .border(Color(cardBorderColor), width: 10)
+                .border(Color.white, width:5)
+                .padding()
+                    Image(pokemonName)
+                        .resizable()
+                        .scaledToFit()
+                        .aspectRatio(1,contentMode: .fit)
+                        .padding()
+                        .shadow(radius:40, y:4)
+                    
+                    HStack {
                         Spacer()
-                        ZStack{
-                            Image(pokemonIcon)
-                                .resizable()
-                                .scaledToFit()
-                                .aspectRatio(0.28, contentMode: .fit)
+                        VStack {
+                            Spacer()
+                            ZStack{
+                                Image(pokemonIcon)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .aspectRatio(0.28, contentMode: .fit)
+                            }
                         }
                     }
                 }
-        }
+            }
             LazyVStack(alignment:.leading){
                 HStack(spacing: 20) {
                     Text("POKÉMON")
                         .bold()
-                        .padding(.horizontal)
+                        .padding()
                         .font(
                             .custom("Futura-Medium", size: 36.0,relativeTo: .title)
                     )
@@ -90,15 +97,26 @@ struct DetailView: View {
                 }
                 //pokemon stats source:
                 //https://www.pokemon.com/us/pokedex/vaporeon
-            }.padding(.top)
-            VStack(alignment: .leading){
-                Text("Information")
-                    .bold()
-                    .font(
-                        .custom("Futura-Medium", size: 26.0,relativeTo: .title3)
-                )
-                Text(pokemonDetail)
-            }.padding()
+            }
+            
+            ScrollView {
+                VStack(alignment: .leading){
+                    Text("Information")
+                        .bold()
+                        .font(
+                            .custom("Futura-Medium", size: 26.0,relativeTo: .title3)
+                    )
+                    Text(pokemonDetail)
+                        .padding(.vertical,3)
+                    Text("Behavior")
+                        .bold()
+                        .font(
+                            .custom("Futura-Medium", size: 26.0,relativeTo: .title3)
+                    )
+                    Text(pokemonBehavior)
+                }.padding()
+            }.frame(height: 110)
+            
         }
     }
 }
@@ -112,6 +130,8 @@ struct DetailView: View {
         cardBorderColor: "darkBlue",
         numberColor: "darkBlue",
         pokemonName: "Vaporeon",
-        pokemonIcon: "Vaporeon1"
+        pokemonIcon: "Vaporeon1",
+        backgroundGradient: gradientColor5,
+        pokemonBehavior: "Vaporeon prefer clean freshwater lakes. They have developed gills to become better suited to an aquatic lifestyle, and their cell composition's similarity to water allows them to melt into the water. This ability enables Vaporeon to remain camouflaged while swimming and ambush their prey: fish Pokémon."
     )
 }
