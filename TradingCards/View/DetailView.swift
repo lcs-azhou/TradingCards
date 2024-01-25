@@ -17,7 +17,7 @@ let gradientColor7 = Gradient(colors: [.white,Color("brightGray"),Color("darkGre
 let gradientColor8 = Gradient(colors: [.white,Color("lightBrown"),Color("darkBrown")])
 
 struct DetailView: View {
-
+    
     let imageName: String
     let pokemonNumber: String
     let pokemonDetail: String
@@ -39,25 +39,27 @@ struct DetailView: View {
                             Text(pokemonName)
                                 .bold()
                                 .padding(.horizontal,20)
-    //                            .padding(.vertical,5)
+                                .padding(.vertical,100)
                                 .font(
                                     .custom("Futura-Medium", size: 36.0,relativeTo: .title)
-                            )
+                                )
                                 .foregroundColor(Color(numberColor))
                         })
-                
-                VStack {
-                    Image(imageName)
-                        .resizable()
-                        .scaledToFit()
-                        .aspectRatio(1,contentMode: .fit)
-                        .padding(8)
-                        .opacity(0.6)
-                        .shadow(radius: 20, y:4)
-                }
-                .border(Color(cardBorderColor), width: 10)
-                .border(Color.white, width:5)
-                .padding()
+                        .offset(y: 20)
+                        .ignoresSafeArea()
+                    
+                    VStack {
+                        Image(imageName)
+                            .resizable()
+                            .scaledToFit()
+                            .aspectRatio(1,contentMode: .fit)
+                            .padding(8)
+                            .opacity(0.6)
+                            .shadow(radius: 20, y:4)
+                    }
+                    .border(Color(cardBorderColor), width: 10)
+                    .border(Color.white, width:5)
+                    .padding()
                     Image(pokemonName)
                         .resizable()
                         .scaledToFit()
@@ -86,14 +88,14 @@ struct DetailView: View {
                         .padding()
                         .font(
                             .custom("Futura-Medium", size: 36.0,relativeTo: .title)
-                    )
+                        )
                     Text(pokemonNumber)
                         .bold()
                         .foregroundColor(Color(numberColor))
                         .font(
                             .custom("Futura-Medium", size: 36.0,relativeTo: .title)
-                    )
-
+                        )
+                    
                 }
                 //pokemon stats source:
                 //https://www.pokemon.com/us/pokedex/vaporeon
@@ -105,14 +107,14 @@ struct DetailView: View {
                         .bold()
                         .font(
                             .custom("Futura-Medium", size: 26.0,relativeTo: .title3)
-                    )
+                        )
                     Text(pokemonDetail)
                         .padding(.vertical,3)
                     Text("Behavior")
                         .bold()
                         .font(
                             .custom("Futura-Medium", size: 26.0,relativeTo: .title3)
-                    )
+                        )
                     Text(pokemonBehavior)
                 }.padding()
             }.frame(height: 110)
